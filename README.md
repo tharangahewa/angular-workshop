@@ -56,5 +56,9 @@ npm install http-server -g
 cd the-study-mate/dist/the-study-mate
 http-server
 ```
+#### Observe & discuss the below
+* `dist` folder 
+* Elements tab in dev tools
+* Network tab in dev tools
 
 Since Angular applications are SPAs, a simple http file server would do. Nginx and Firebase hosting are two popular ways of hosting angular apps
