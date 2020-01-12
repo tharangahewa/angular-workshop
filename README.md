@@ -81,3 +81,44 @@ projects > architect > build > styles>
     "src/styles.css"
 ]
 ```
+## Angular Components
+[Overview](https://angular.io/guide/architecture-components)
+
+### Plan the home page component hierarchy
+
+```
+app-root
+|-nav-bar
+|-carousel
+|-filters
+|-courses
+    |-course
+```
+
+### Generate First Angular Component
+
+Use `ng generate component nav-bar` or `ng g c nav-bar` to generate the nav bar component. 
+* Note the declarations array in the NgModule decorator in app.module.ts. This how the framework will know about the existance of this component.  
+```
+@NgModule({
+  declarations: [
+    AppComponent,
+    NavBarComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+* Note the Component decorator in the nav-bar.component.ts
+```
+@Component({
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css']
+})
+```  
+### Generate rest of the Components 
