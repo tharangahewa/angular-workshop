@@ -65,3 +65,19 @@ http-server -o
 * How html templates and css files are bundled in to js files
 
 Since Angular applications are SPAs, a simple http file server would do. Nginx and Firebase hosting are two popular ways of hosting angular apps
+
+### Configure Bootstrap CSS
+
+Copy the html design home.html in to the app.component.html. Copy all the html code within the body tag, excluding script tags. Note that the styles aren't working.
+
+In order to install bootstrap run `npm i bootstrap`. No need to install popper & jquery.
+
+Modify angular.json to import bootstrap.min.css, as below.
+
+projects > architect > build > styles>
+```json
+"styles": [
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "src/styles.css"
+]
+```
