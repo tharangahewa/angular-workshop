@@ -1,5 +1,11 @@
 # Angular Workshop
 
+## Install VSCode
+
+* [Download VSCode](https://code.visualstudio.com/) 
+* [VSCode Introduction](https://www.academind.com/learn/web-dev/visual-studio-code-introduction/)
+* [Angular Extensions](https://marketplace.visualstudio.com/items?itemName=johnpapa.angular-essentials)
+
 ## Static Design 
 Please find the static html pages inside [design](./design) directory. Design has been done using Bootstrap 4. Original - [startbootstrap.com](https://startbootstrap.com/)
 
@@ -12,3 +18,4 @@ npm install
 npm start
 ```    
 Open http://localhost:3000/home.html or http://localhost:3000/manage-courses.html
+
