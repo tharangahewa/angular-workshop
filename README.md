@@ -1,5 +1,7 @@
 # Angular Workshop
 
+[TOC]
+
 ## Install VSCode
 
 * [Download VSCode](https://code.visualstudio.com/) 
@@ -93,6 +95,7 @@ app-root
 |-filters
 |-courses
     |-course
+|-footer
 ```
 
 ### Generate First Angular Component
@@ -121,4 +124,11 @@ export class AppModule { }
   styleUrls: ['./nav-bar.component.css']
 })
 ```  
+* Move the nav-bar related html to nav-bar-component.html template file. 
+* Add the newly created component to the DOM by adding the html custom element `<app-nav-bar></app-nav-bar>` to the app.component.html, using 
+
+> Note: Please note that Bootstrap requires every html tag with "raw" class to follow up with a tag with "col" class. So it is a good idea to leave the layout related tags in the container component, in this case the app component.   
+
 ### Generate rest of the Components 
+Generate rest of the components as per the plan, and move the relevant html segments inside the compoenents. Then added them to the DOM using html custom elements.
+

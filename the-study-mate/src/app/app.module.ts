@@ -7,6 +7,7 @@ import { FiltersComponent } from './filters/filters.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './courses/course/course.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CourseComponent } from './courses/course/course.component';
     FiltersComponent,
     CarouselComponent,
     CoursesComponent,
-    CourseComponent
+    CourseComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule
