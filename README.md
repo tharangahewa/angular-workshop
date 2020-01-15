@@ -132,3 +132,22 @@ export class AppModule { }
 ### Generate rest of the Components 
 Generate rest of the components as per the plan, and move the relevant html segments inside the compoenents. Then added them to the DOM using html custom elements.
 
+### Typesript jumpstart
+
+`npm i -g typescript`
+
+* Types - [first.ts](./typescript/first.ts)
+* Interfaces - [course.ts](./typescript/course.ts) 
+* Classes - [user.ts](./typescript/user.ts)
+
+Compile / Transpile .ts files using `tsc <filename>`, and observe the generated 
+
+> Typescript interfaces are just types that are used during compiletime. When compiled they they leave nothing in the js file. 
+> They cannot have constructor/ initialize logic. 
+> They can only have function declarations not the implementation. 
+> Lightwieght and easy to use. Ideal for domain/dto objects.
+> No encapulation, in other words all are public.
+> [Want to find out more](https://www.tutorialsteacher.com/typescript/typescript-interface)
+
+> Typescript classes are rich and heavy with initialization / constructor logic and method implementations.
+> [Want to find out more](https://www.tutorialsteacher.com/typescript/typescript-class)      
