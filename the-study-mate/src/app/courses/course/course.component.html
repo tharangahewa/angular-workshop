@@ -1,4 +1,10 @@
-<div class="card h-100" (click)="onClick($event)" >
+<div class="card h-100"
+     (click)="onClick($event)"
+     (mouseenter)="mouseEnter()"
+     (mouseleave)="mouseLeave()"
+     [ngClass]="inFocus ? 'shadow': ''"
+
+>
   <a href="#"><img class="card-img-top" [src]="course.imgUrl" alt=""></a>
   <div class="card-body">
     <h4 class="card-title">

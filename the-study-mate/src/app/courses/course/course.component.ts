@@ -9,8 +9,9 @@ import { Course } from 'src/app/model/course';
 export class CourseComponent implements OnInit {
 
   @Input() course: Course;
-
   @Output() courseSelected = new EventEmitter<string>();
+
+  inFocus = false;
 
   constructor() {
   }
@@ -21,5 +22,13 @@ export class CourseComponent implements OnInit {
   onClick(event: Event) {
     alert('You clicked ' + this.course.title);
     this.courseSelected.emit(this.course.title);
+  }
+
+  mouseEnter() {
+    this.inFocus = true;
+  }
+
+  mouseLeave() {
+    this.inFocus = false;
   }
 }

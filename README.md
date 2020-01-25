@@ -245,3 +245,26 @@ onClick(event: Event) {
 * Define a courses array in the [courses.ts](./the-study-mate/src/app/data/courses.ts)
 * Import it to [courses.component.ts](./the-study-mate/src/app/courses/courses.component.ts)
    
+### Types of Directives   
+There are three kinds of directives in Angular:
+
+* Components—directives with a template (already done)
+* Structural directives—change the DOM layout by adding and removing DOM elements.
+* Attribute directives—change the attributes or behavior of an element, component, or another directive.
+   
+### Structural Directive - *ngFor
+* Use the courses array to generate multiple html elements
+```angular2html
+<div
+    *ngFor="let course of courses"
+    class="col-lg-4 col-md-6 mb-4">
+    <app-course [course]="course"
+    (courseSelected)="onCourseSelection($event)"
+    ></app-course>
+</div>
+```  
+
+### Attribute Directive - ngClass
+
+
+### Attribute Directive - ngHighlightable
