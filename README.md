@@ -206,7 +206,7 @@ Later in the forms section
     starRating?: number;
   };
 ```  
-* Assign the input using the `[targetAttribute]="expression"` syntax 
+* Assign the input using the `[targetAttribute]="expression"` syntax, in the mother component [courses.component.html](./the-study-mate/src/app/courses/courses.component.html)
 ```angular2html
 <app-course [course]="{
     title: 'angular workshop',
@@ -214,4 +214,27 @@ Later in the forms section
     price: 50,
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!'
   }"></app-course>
+```
+### Component outputs
+* Use @Onput() decorator to define output argument, along with event emitter.
+```
+@Output() courseSelected = new EventEmitter<string>();
+```
+* Emit the event
+```
+onClick(event: Event) {
+    this.courseSelected.emit(this.course.title);
+  }
+```
+* Catch the event form the mother component [courses.component.html](./the-study-mate/src/app/courses/courses.component.html)
+```angular2html
+ <app-course 
+    (courseSelected)="onCourseSelection($event)"
+    ></app-course>
+```
+
+```
+ onCourseSelection( event: string) {
+     console.log( event);
+   }
 ```

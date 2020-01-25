@@ -12,4 +12,7 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCourseSelection( event: string) {
+    console.log( event);
+  }
 }

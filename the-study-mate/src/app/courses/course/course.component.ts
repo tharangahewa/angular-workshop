@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-course',
@@ -15,6 +15,8 @@ export class CourseComponent implements OnInit {
     starRating?: number;
   };
 
+  @Output() courseSelected = new EventEmitter<string>();
+
   constructor() {
   }
 
@@ -23,6 +25,6 @@ export class CourseComponent implements OnInit {
 
   onClick(event: Event) {
     alert('You clicked ' + this.course.title);
-    console.log(event);
+    this.courseSelected.emit(this.course.title);
   }
 }
