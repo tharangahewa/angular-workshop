@@ -9,6 +9,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './courses/course/course.component';
 import { FooterComponent } from './footer/footer.component';
 import { HighlightableDirective } from './directive/highlightable.directive';
+import { EllipsisPipe } from './pipe/ellipsis.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HighlightableDirective } from './directive/highlightable.directive';
     CoursesComponent,
     CourseComponent,
     FooterComponent,
-    HighlightableDirective
+    HighlightableDirective,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule

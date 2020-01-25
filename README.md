@@ -290,7 +290,7 @@ There are three kinds of directives in Angular:
 
 ### Write a custom Attribute Directive - appHighlightable
 Write a directive to do same, to add a shadow while the course tile is within the focus.
-* Write a new directive [highlightable.directive.ts](./the-study-mate/src/app/directive/highlightable.directive.ts)
+* Generate a new directive `ng generate directive highlightable` [highlightable.directive.ts](./the-study-mate/src/app/directive/highlightable.directive.ts)
 * Receive the element ref via the constructor injection
 * Receive the class to add when highlighted as an input to the directive
 * Receive the events of the host element
@@ -306,3 +306,15 @@ Write a directive to do same, to add a shadow while the course tile is within th
 >
 ```
 
+## Angular Pipes
+
+### Use built-in pipes
+* Use the built-in pipe "titlecase" to format the course.title 
+* Use the built-in pipe "currency" to format the course.price, note how the input 'EUR' is passed in
+
+### Write a custom pipes
+Generate a custom pipe to implement the ellipsis behaviour
+* Create a custom pipe `ng generate pipe ellipsis` [ellipsis.pipe.ts](./the-study-mate/src/app/pipe/ellipsis.pipe.ts)
+* Define the inputs and the transformation logic
+* Use the pipe to format course.description
+  
