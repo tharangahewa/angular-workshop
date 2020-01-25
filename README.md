@@ -265,6 +265,27 @@ There are three kinds of directives in Angular:
 ```  
 
 ### Attribute Directive - ngClass
+* Use ngClass to add a shadow while the course tile in within the focus
 
+[course.component.html](./the-study-mate/src/app/courses/course/course.component.html) 
+```
+<div class="card h-100"
+     (click)="onClick($event)"
+     (mouseenter)="mouseEnter()"
+     (mouseleave)="mouseLeave()"
+     [ngClass]="inFocus ? 'shadow': ''"
+>
+```
 
-### Attribute Directive - ngHighlightable
+[course.component.ts](./the-study-mate/src/app/courses/course/course.component.ts) 
+```
+  mouseEnter() {
+    this.inFocus = true;
+  }
+
+  mouseLeave() {
+    this.inFocus = false;
+  }
+```
+
+### Write a custom Attribute Directive - ngHighlightable
