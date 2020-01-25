@@ -265,7 +265,7 @@ There are three kinds of directives in Angular:
 ```  
 
 ### Attribute Directive - ngClass
-* Use ngClass to add a shadow while the course tile in within the focus
+* Use ngClass to add a shadow while the course tile is within the focus.
 
 [course.component.html](./the-study-mate/src/app/courses/course/course.component.html) 
 ```
@@ -288,4 +288,21 @@ There are three kinds of directives in Angular:
   }
 ```
 
-### Write a custom Attribute Directive - ngHighlightable
+### Write a custom Attribute Directive - appHighlightable
+Write a directive to do same, to add a shadow while the course tile is within the focus.
+* Write a new directive [highlightable.directive.ts](./the-study-mate/src/app/directive/highlightable.directive.ts)
+* Receive the element ref via the constructor injection
+* Receive the class to add when highlighted as an input to the directive
+* Receive the events of the host element
+* Use Renderer2 the manipulate the DOM and add/remove the class
+* Add the directive selector, and pass the inputs to the directive
+
+[course.component.html](./the-study-mate/src/app/courses/course/course.component.html) 
+```angular2html
+<div class="card h-100"
+     (click)="onClick($event)"
+     appHighlightable
+     [appHighlightableClass]="'shadow'"
+>
+```
+
