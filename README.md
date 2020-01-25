@@ -132,7 +132,10 @@ export class AppModule { }
 ### Generate rest of the Components 
 Generate rest of the components as per the plan, and move the relevant html segments inside the compoenents. Then added them to the DOM using html custom elements.
 
-### Typesript jumpstart
+### Typescript jumpstart
+Why Typescript? Well Angular Uses Typescript by default. It is not mandatory, but, I think, it is really hard to find documentation and examples of Angular in Javascript.  
+
+Typescript is a super set of javascript. It helps us write better code using types which javascript lacks. It mostly Javascript syntax + Types. When compiled, Typescript converts in to javascript. Go ahead with the following experiments to understand the basics of Typescript.  
 
 `npm i -g typescript`
 
@@ -140,14 +143,15 @@ Generate rest of the components as per the plan, and move the relevant html segm
 * Interfaces - [course.ts](./typescript/course.ts) 
 * Classes - [user.ts](./typescript/user.ts)
 
-Compile / Transpile .ts files using `tsc <filename>`, and observe the generated 
+Compile .ts files using `tsc <filename>`, and observe the generated .js files.
 
-> Typescript interfaces are just types that are used during compiletime. When compiled they they leave nothing in the js file. 
+> Note: Typescript interfaces are just types that are used during compile-time. 
+> When compiled they leave nothing in the js file. 
 > They cannot have constructor/ initialize logic. 
 > They can only have function declarations not the implementation. 
-> Lightwieght and easy to use. Ideal for domain/dto objects.
-> No encapulation, in other words all are public.
+> Lightweight and easy to use. Ideal for domain or dto objects.
+> No encapsulation, in other words all the fields are public.
 > [Want to find out more](https://www.tutorialsteacher.com/typescript/typescript-interface)
 
-> Typescript classes are rich and heavy with initialization / constructor logic and method implementations.
+> Note: Typescript classes are rich and heavy with initialization / constructor logic and method implementations.
 > [Want to find out more](https://www.tutorialsteacher.com/typescript/typescript-class)      
