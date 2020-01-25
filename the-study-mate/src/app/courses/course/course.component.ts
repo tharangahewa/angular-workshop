@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-course',
@@ -7,13 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseComponent implements OnInit {
 
-  course = {
-    title: 'angular workshop',
-    imgUrl: 'assets/angular-logo.png',
-    price: 50,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
-    starRating: 4.2,
-
+  @Input() course: {
+    title: string;
+    imgUrl: string;
+    description: string;
+    price: number;
+    starRating?: number;
   };
 
   constructor() {
@@ -22,8 +21,8 @@ export class CourseComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick( event: Event) {
+  onClick(event: Event) {
     alert('You clicked ' + this.course.title);
-    console.log( event);
+    console.log(event);
   }
 }

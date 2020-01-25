@@ -190,3 +190,28 @@ Angular uses it's own html template syntax [template-syntax](https://angular.io/
 
 ### Two-way binding 
 Later in the forms section 
+
+### Component inputs
+* Use @Input() decorator to define input arguments.
+```
+@Input() course;
+```
+* Define a course type inline and observe the advantageous of types
+```
+@Input() course: {
+    title: string;
+    imgUrl: string;
+    description: string;
+    price: number;
+    starRating?: number;
+  };
+```  
+* Assign the input using the `[targetAttribute]="expression"` syntax 
+```angular2html
+<app-course [course]="{
+    title: 'angular workshop',
+    imgUrl: 'assets/angular-logo.png',
+    price: 50,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!'
+  }"></app-course>
+```
