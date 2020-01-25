@@ -133,7 +133,7 @@ export class AppModule { }
 Generate rest of the components as per the plan, and move the relevant html segments inside the compoenents. Then added them to the DOM using html custom elements.
 
 ### Typescript jumpstart
-Why Typescript? Well Angular Uses Typescript by default. It is not mandatory, but, I think, it is really hard to find documentation and examples of Angular in Javascript.  
+Why we need Typescript? Well, Angular Uses Typescript by default not plain Javascript. It is not mandatory to use Typescript, but, I think, it is really hard to find documentation and examples of Angular in Javascript.  
 
 Typescript is a super set of javascript. It helps us write better code using types which javascript lacks. It mostly Javascript syntax + Types. When compiled, Typescript converts in to javascript. Go ahead with the following experiments to understand the basics of Typescript.  
 
@@ -155,3 +155,38 @@ Compile .ts files using `tsc <filename>`, and observe the generated .js files.
 
 > Note: Typescript classes are rich and heavy with initialization / constructor logic and method implementations.
 > [Want to find out more](https://www.tutorialsteacher.com/typescript/typescript-class)      
+
+## Angular Components Diving Deeper
+
+### MV* with Angular components
+Angular has a Component based architecture, and Components represent a single MVC/MVVM unit.  
+* component.ts file in a component represents the controller/viewmodel 
+* component.html file in a component represents the view, and uses a special html syntax  
+
+### Create the model
+Create a object in [course.component.ts](./the-study-mate/src/app/courses/course/course.component.ts) 
+```
+course = {
+    title: 'Angular Workshop',
+    price: 50,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
+    starRating: 4.2
+  };
+```
+
+### Bind your model to the view
+Angular uses it's own html template syntax [template-syntax](https://angular.io/guide/template-syntax) to manipulate html.
+* All most every html tag is valid other than the <sript> tag
+* Do not use  <html>, <body>, <head> tags, as it doesn't make sense to repeat those onetime tags in components
+
+#### Interpolation ( .ts to .html)
+`{{ expression }}` and `[targetAttribute]="expression"` syntax to bind attributes from data source to view.
+* `{{ expression }}` is good to bind source attributes to html text
+* `targetAttribute ={{ expression }}` is not forbidden
+* `[targetAttribute]="expression"` is better to bind source attributes to html attributes
+
+#### Event ( .html to .ts)
+`(event)="statement"` is the syntax to bind from view target to data source
+
+### Two-way binding 
+Later in the forms section 
