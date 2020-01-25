@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Course } from 'src/app/model/course';
 
 @Component({
   selector: 'app-course',
@@ -7,13 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CourseComponent implements OnInit {
 
-  @Input() course: {
-    title: string;
-    imgUrl: string;
-    description: string;
-    price: number;
-    starRating?: number;
-  };
+  @Input() course: Course;
 
   @Output() courseSelected = new EventEmitter<string>();
 

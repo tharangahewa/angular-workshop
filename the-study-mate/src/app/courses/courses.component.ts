@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from '../model/course';
+import { courses } from '../data/courses';
 
 @Component({
   selector: 'app-courses',
@@ -7,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CoursesComponent implements OnInit {
 
-  constructor() { }
+  courses: Course[] = courses;
+
+  constructor() {
+    console.log(this.courses);
+  }
 
   ngOnInit() {
   }
 
-  onCourseSelection( event: string) {
-    console.log( event);
+  onCourseSelection(event: string) {
+    console.log(event);
   }
 }

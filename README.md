@@ -238,3 +238,10 @@ onClick(event: Event) {
      console.log( event);
    }
 ```
+## Angular Directives
+
+### Refactor the code
+* Take the inline type definition of the course to a common model [course.ts](./the-study-mate/src/app/model/course.ts)
+* Define a courses array in the [courses.ts](./the-study-mate/src/app/data/courses.ts)
+* Import it to [courses.component.ts](./the-study-mate/src/app/courses/courses.component.ts)
+   
