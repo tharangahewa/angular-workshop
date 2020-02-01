@@ -318,3 +318,26 @@ Generate a custom pipe to implement the ellipsis behaviour
 * Define the inputs and the transformation logic
 * Use the pipe to format course.description
   
+## Angular Routing
+
+### Refactoring
+
+* Create several page components in a new components directory
+* Refactor the components as below 
+```
+app
+|-component
+  |-about
+  |-contact
+  |-course-details
+  |-footer
+  |-home
+    |-courses
+      |-course
+    |-filter
+  |-my-courses
+  |-nav-bar
+
+```  
+* Move the home page body related html code from app.component.html to home.component.html 
+ 
