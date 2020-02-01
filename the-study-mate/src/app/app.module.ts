@@ -16,13 +16,16 @@ import { ContactComponent } from './component/contact/contact.component';
 import { AboutComponent } from './component/about/about.component';
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'my-courses', component: MyCoursesComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'course-detail/:id', component: CourseDetailsComponent }
+  { path: 'course-detail/:id', component: CourseDetailsComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -40,7 +43,8 @@ const routes: Routes = [
     MyCoursesComponent,
     ContactComponent,
     AboutComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
