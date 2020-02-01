@@ -15,6 +15,15 @@ import { MyCoursesComponent } from './component/my-courses/my-courses.component'
 import { ContactComponent } from './component/contact/contact.component';
 import { AboutComponent } from './component/about/about.component';
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'my-courses', component: MyCoursesComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'course-detail/:id', component: CourseDetailsComponent }
+];
 
 @NgModule({
   declarations: [
@@ -34,7 +43,8 @@ import { CourseDetailsComponent } from './component/course-details/course-detail
     CourseDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
