@@ -17,6 +17,7 @@ import { AboutComponent } from './component/about/about.component';
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { BackHomeComponent } from './component/back-home/back-home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -44,7 +45,8 @@ const routes: Routes = [
     ContactComponent,
     AboutComponent,
     CourseDetailsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BackHomeComponent
   ],
   imports: [
     BrowserModule,

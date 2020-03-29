@@ -341,3 +341,40 @@ app
 ```  
 * Move the home page body related html code from app.component.html to home.component.html 
  
+### The Basics
+[link](https://angular.io/guide/router#the-basics)
+
+* Note the `<base href='/'>` in index.html
+* Imports `import { RouterModule, Routes } from '@angular/router';`
+* Define the router configs
+```
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'my-courses', component: MyCoursesComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'course-detail/:id', component: CourseDetailsComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+];
+
+imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes)
+  ]
+``` 
+* Define the new page not found component
+* Notice the empty route
+* Notice the wildcard route
+* Notice the order of route
+* Add the Router Outlet placeholder replacing the `app-home` in the `app.component.html`
+```
+<app-nav-bar></app-nav-bar>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+```
+### Router links & Activated Router links
+
+* Add router links to the [nav-abr-component.html](/)   
