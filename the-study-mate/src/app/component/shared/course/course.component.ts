@@ -9,6 +9,7 @@ import { Course } from 'src/app/model/course';
 export class CourseComponent implements OnInit {
 
   @Input() course: Course;
+  @Input() editable = false;
   @Output() courseSelected = new EventEmitter<string>();
 
   constructor() {
@@ -18,7 +19,7 @@ export class CourseComponent implements OnInit {
   }
 
   onClick(event: Event) {
-    alert('You clicked ' + this.course.title);
+    event.preventDefault();
     this.courseSelected.emit(this.course.title);
   }
 }

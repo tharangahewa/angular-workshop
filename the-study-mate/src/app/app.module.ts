@@ -6,7 +6,7 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { FiltersComponent } from './component/home/filters/filters.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { CoursesComponent } from './component/home/courses/courses.component';
-import { CourseComponent } from './component/home/courses/course/course.component';
+import { CourseComponent } from './component/shared/course/course.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HighlightableDirective } from './directive/highlightable.directive';
 import { EllipsisPipe } from './pipe/ellipsis.pipe';

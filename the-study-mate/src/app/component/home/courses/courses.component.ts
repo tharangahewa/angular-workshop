@@ -12,7 +12,6 @@ export class CoursesComponent implements OnInit {
   courses: Course[] = courses;
 
   constructor() {
-    console.log(this.courses);
   }
 
   ngOnInit() {
