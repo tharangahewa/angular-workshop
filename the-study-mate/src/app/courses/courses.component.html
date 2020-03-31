@@ -1,18 +1,51 @@
 <div class="row">
   <div class="col-lg-4 col-md-6 mb-4">
-    <app-course></app-course>
+    <app-course [course]="{
+      title: 'Angular Workshop',
+      imgUrl: 'assets/angular-3-logo.png',
+      price: 50,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!'
+    }" 
+    (courseSelected)="onCourseSelect($event)"
+    ></app-course>
   </div>
 
   <div class="col-lg-4 col-md-6 mb-4">
-    <app-course></app-course>
+    <app-course [course]="{
+      title: 'React Workshop',
+      imgUrl: 'assets/angular-3-logo.png',
+      price: 50,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
+      starRating: 4
+    }" 
+    (courseSelected)="onCourseSelect($event)"
+    ></app-course>
   </div>
 
   <div class="col-lg-4 col-md-6 mb-4">
-    <app-course></app-course>
+    <app-course [course]="{
+      title: 'Vue Workshop',
+      imgUrl: 'assets/angular-3-logo.png',
+      price: 50,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
+      starRating: 4
+    }" 
+    (courseSelected)="onCourseSelect($event)"
+    ></app-course>
   </div>
 
   <div class="col-lg-4 col-md-6 mb-4">
-    <app-course></app-course>
+    <app-course [course]="{
+      title: 'Backbone Workshop',
+      imgUrl: 'assets/angular-3-logo.png',
+      price: 50,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!',
+      starRating: 4
+    }" 
+    (courseSelected)="onCourseSelect($event)"
+    ></app-course>
   </div>
+
+  
   
 </div>
