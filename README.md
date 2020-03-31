@@ -386,13 +386,13 @@ Setup my courses component. Modify exisiting course component - [course.componen
 
 ### Create new modal component
 `$ ng g c course-edit-modal` 
-Move corresponding html the html template file.
+* Move corresponding html the html template file.
 refer [course-edit-modal.component.html](./the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.html)
 
-Add ng-bootstrap to import modal related functionality.[ng-bootstrap](https://ng-bootstrap.github.io/#/getting-started)
+* Add ng-bootstrap to import modal related functionality.[ng-bootstrap](https://ng-bootstrap.github.io/#/getting-started)
 `npm install --save @ng-bootstrap/ng-bootstrap` 
 
-Import the module to app.module file and add it the module imports array.
+* Import the module to app.module file and add it the module imports array.
 ```
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -404,12 +404,12 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 export class AppModule {
 }
 ```
-Since Angular 9 (and ng-bootstrap 6) we have to add the additional @angular/localize polyfill to our project
+* Since Angular 9 (and ng-bootstrap 6) we have to add the additional @angular/localize polyfill to our project
 `ng add @angular/localize` 
 
-Follow [Modal section](https://ng-bootstrap.github.io/#/components/modal/examples#component) to implement the modal. 
+* Follow [Modal section](https://ng-bootstrap.github.io/#/components/modal/examples#component) to implement the modal. 
 
-To summarize we need to add NgbModal service to [my-courses.component.ts](the-study-mate/src/app/component/my-courses/my-courses.component.ts)
+* To summarize we need to add NgbModal service to [my-courses.component.ts](the-study-mate/src/app/component/my-courses/my-courses.component.ts)
 ```
 constructor(private modalService: NgbModal) {}
 ```
