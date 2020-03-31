@@ -15,8 +15,12 @@
   </div>
   <div *ngIf="editable" class="card-footer">
     <div class="btn-group">
-        <button type="button" class="btn btn-outline-primary">Edit</button>
-        <button type="button" class="btn btn-outline-danger">Remove</button>
+        <button 
+        (click)="onEdit()"
+        type="button" class="btn btn-outline-primary">Edit</button>
+        <button 
+        (click)="onRemove()"
+        type="button" class="btn btn-outline-danger">Remove</button>
     </div>
 </div>
 </div>

@@ -17,7 +17,7 @@ export class CoursesComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCourseSelection(event: string) {
+  onCourseSelection(event: Course) {
     console.log(event);
   }
 }
