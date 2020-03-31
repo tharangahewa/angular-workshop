@@ -385,7 +385,7 @@ imports: [
 Setup my courses component. Modify exisiting course component - [course.component.html](./the-study-mate/src/app/courses/course/course.component.html) by introducing a editable mode.
 
 ### Create new modal component
-'$ ng g c course-edit-modal' 
+`$ ng g c course-edit-modal` 
 Move corresponding html the html template file.
 refer [course-edit-modal.component.html](./the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.html)
 
