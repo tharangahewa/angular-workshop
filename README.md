@@ -377,4 +377,10 @@ imports: [
 ```
 ### Router links & Activated Router links
 
-* Add router links to the [nav-abr-component.html](/)   
+* Add router links to the [nav-bar-component.html](/)   
+  
+## Angular Forms
+
+### Ground work
+Setup my courses component. Modify exisiting course component - [course.component.html](./the-study-mate/src/app/courses/course/course.component.html) by introducing a editable mode.
+
