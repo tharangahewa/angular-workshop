@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course';
+import { courseList } from '../data/courses-list';
 
 @Component({
   selector: 'app-courses',
@@ -7,6 +8,8 @@ import { Course } from '../models/course';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
+
+  courses: Course[] = courseList;
 
   constructor() { }
 

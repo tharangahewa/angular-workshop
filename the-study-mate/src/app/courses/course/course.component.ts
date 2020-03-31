@@ -7,12 +7,11 @@ import { Course } from 'src/app/models/course';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
+  @Input() course: Course;
+  @Output() courseSelected = new EventEmitter<Course>();
+  inFocus = false;
 
-  @Input() course: Course ;
-
-  @Output() courseSelected = new EventEmitter<Course>(); 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     // setInterval( ()=> {
@@ -20,9 +19,16 @@ export class CourseComponent implements OnInit {
     // }, 2000);
   }
 
-  onClick(event: Event){
+  onClick(event: Event) {
     this.course.price += 10;
-    this.courseSelected.emit( this.course ); 
+    this.courseSelected.emit(this.course);
   }
 
+  onMouseEnter() {
+    this.inFocus = true;
+  }
+
+  onMouseLeave() {
+    this.inFocus = false;
+  }
 }
