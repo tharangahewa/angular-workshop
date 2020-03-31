@@ -8,6 +8,7 @@ import { FiltersComponent } from './filters/filters.component';
 import { CoursesComponent } from './courses/courses.component';
 import { FooterComponent } from './footer/footer.component';
 import { CourseComponent } from './courses/course/course.component';
+import { HighlightableDirective } from './directives/highlightable.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CourseComponent } from './courses/course/course.component';
     FiltersComponent,
     CoursesComponent,
     FooterComponent,
-    CourseComponent
+    CourseComponent,
+    HighlightableDirective
   ],
   imports: [
     BrowserModule
