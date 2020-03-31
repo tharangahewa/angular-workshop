@@ -10,10 +10,11 @@
     </button>
   </div>
   <div class="modal-body">
-    <form action="">
+    <form [formGroup]="formGroup" (ngSubmit)="onSave(formGroup.value)">
       <div class="form-group">
         <label for="title">Title</label>
         <input
+          formControlName="title"
           type="text"
           class="form-control"
           id="title"
@@ -23,6 +24,7 @@
       <div class="form-group">
         <label for="title">Price ($)</label>
         <input
+          formControlName="price"
           type="number"
           class="form-control"
           id="price"
@@ -30,23 +32,33 @@
         />
       </div>
       <div class="form-group">
+        <label for="title">Img Url</label>
+        <input
+          formControlName="imgUrl"
+          type="string"
+          class="form-control"
+          id="imgUrl"
+          placeholder="Eg. https://reactjs.org/logo-og.png"
+        />
+      </div>
+      <div class="form-group">
         <label for="title">Description</label>
         <textarea
+          formControlName="description" 
           rows="5"
           class="form-control"
           id="desc"
           placeholder="Enter Description"
         ></textarea>
       </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button 
+        (click)="onClose()"
+        type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
     </form>
   </div>
-  <div class="modal-footer">
-    <button 
-    (click)="onSave()"
-    type="button" class="btn btn-primary">Save</button>
-    <button 
-    (click)="onClose()"
-    type="button" class="btn btn-secondary" data-dismiss="modal">
-      Close
-    </button>
-  </div>
+  

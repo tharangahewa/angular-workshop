@@ -441,3 +441,11 @@ constructor(private activeModal: NgbActiveModal) {}
     this.activeModal.dismiss("dismissed");
   }
 ```
+
+### Add the form
+Follow the steps in [Angular Reactive Forms](https://angular.io/guide/reactive-forms#grouping-form-controls) to implement the form. refer [course-edit-modal.component.ts](the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.ts) and [course-edit-modal.component.html](the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.html) 
+
+We need to add an id field to track a course identity. So we can modify a course object.
+[refer idGenerator function](the-study-mate/src/app/data/courses.ts) 
+
+

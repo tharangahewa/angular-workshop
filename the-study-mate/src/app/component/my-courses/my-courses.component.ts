@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { courses } from "src/app/data/courses";
+import { courses, idGenerator } from "src/app/data/courses";
 import { Course } from "src/app/model/course";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { CourseEditModalComponent } from "./course-edit-modal/course-edit-modal.component";
@@ -19,21 +19,38 @@ export class MyCoursesComponent implements OnInit {
   }
 
   onCreateCourse() {
-    this.openModal({} as Course, "Create Course");
+    const newCourse = { 
+      id: idGenerator(), 
+      title: '',
+      description: '',
+      price: 0,
+      imgUrl: ''
+    } as Course;
+    this.openModal(newCourse, "Create Course").then(
+      result => {
+        console.log(result);
+        courses.push(result);
+      },
+      reason => console.log(reason)
+    );
   }
 
   onCourseEdit(course: Course) {
-    this.openModal(course, "Edit Course");
+    this.openModal(course, "Edit Course").then(
+      result => {
+        console.log(result);
+        const idx = courses.findIndex(c => c.id === result.id);
+        courses[idx] = result;
+      },
+      reason => console.log(reason)
+    );
   }
 
   private openModal(course: Course, title: string) {
     const modalRef = this.modalService.open(CourseEditModalComponent);
     modalRef.componentInstance.title = title;
     modalRef.componentInstance.course = course;
-    modalRef.result.then(
-      result => console.log(result),
-      reason => console.log(reason)
-    );
+    return modalRef.result;
   }
 
   onCourseRemove(course: Course) {}
