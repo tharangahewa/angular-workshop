@@ -384,3 +384,60 @@ imports: [
 ### Ground work
 Setup my courses component. Modify exisiting course component - [course.component.html](./the-study-mate/src/app/courses/course/course.component.html) by introducing a editable mode.
 
+### Create new modal component
+'$ ng g c course-edit-modal' 
+Move corresponding html the html template file.
+refer [course-edit-modal.component.html](./the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.html)
+
+Add ng-bootstrap to import modal related functionality.[ng-bootstrap](https://ng-bootstrap.github.io/#/getting-started)
+`npm install --save @ng-bootstrap/ng-bootstrap` 
+
+Import the module to app.module file and add it the module imports array.
+```
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+@NgModule({
+  ...
+  imports: [NgbModule, ...],
+  ...
+})
+export class AppModule {
+}
+```
+Since Angular 9 (and ng-bootstrap 6) we have to add the additional @angular/localize polyfill to our project
+`ng add @angular/localize` 
+
+Follow (Modal section)[https://ng-bootstrap.github.io/#/components/modal/examples#component] to implement the modal. 
+
+To summarize we need to add NgbModal service to (my-courses.component.ts)[the-study-mate/src/app/component/my-courses/my-courses.component.ts]
+```
+constructor(private modalService: NgbModal) {}
+```
+And open the modal on create & edit events
+```
+openModal(course: Course, title: string) {
+    const modalRef = this.modalService.open(CourseEditModalComponent);
+    modalRef.componentInstance.title = title;
+    modalRef.componentInstance.course = course;
+    modalRef.result.then(
+      result => console.log(result),
+      reason => console.log(reason)
+    );
+  }
+```
+
+Then modify (course-edit-modal.component.ts)[the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.ts] to implement the close and dismiss actions
+
+```
+constructor(private activeModal: NgbActiveModal) {}
+
+  ngOnInit(): void {}
+
+  onSave() {
+    this.activeModal.close(this.course);
+  }
+
+  onClose() {
+    this.activeModal.dismiss("dismissed");
+  }
+```

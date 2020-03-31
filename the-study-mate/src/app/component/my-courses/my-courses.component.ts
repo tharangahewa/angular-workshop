@@ -19,18 +19,16 @@ export class MyCoursesComponent implements OnInit {
   }
 
   onCreateCourse() {
-    const modalRef = this.modalService.open(CourseEditModalComponent);
-    modalRef.componentInstance.title = "Create Course";
-    modalRef.componentInstance.course = {} as Course;
-    modalRef.result.then(
-      result => console.log(result),
-      reason => console.log(reason)
-    );
+    this.openModal({} as Course, "Create Course");
   }
 
   onCourseEdit(course: Course) {
+    this.openModal(course, "Edit Course");
+  }
+
+  private openModal(course: Course, title: string) {
     const modalRef = this.modalService.open(CourseEditModalComponent);
-    modalRef.componentInstance.title = "Edit Course";
+    modalRef.componentInstance.title = title;
     modalRef.componentInstance.course = course;
     modalRef.result.then(
       result => console.log(result),
