@@ -12,7 +12,7 @@
       <a href="#" (click)="onClick($event)">{{ course.title | titlecase }}</a>
     </h4>
     <h5>{{ course.price | currency : 'USD' }}</h5>
-    <p class="card-text">{{ course.title }}</p>
+    <p class="card-text">{{ course.description | ellipsis : 70 : '...' }}</p>
   </div>
   <div class="card-footer">
     <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
