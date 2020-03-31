@@ -409,7 +409,7 @@ Since Angular 9 (and ng-bootstrap 6) we have to add the additional @angular/loca
 
 Follow [Modal section](https://ng-bootstrap.github.io/#/components/modal/examples#component) to implement the modal. 
 
-To summarize we need to add NgbModal service to (my-courses.component.ts)[the-study-mate/src/app/component/my-courses/my-courses.component.ts]
+To summarize we need to add NgbModal service to [my-courses.component.ts](the-study-mate/src/app/component/my-courses/my-courses.component.ts)
 ```
 constructor(private modalService: NgbModal) {}
 ```
@@ -426,7 +426,7 @@ openModal(course: Course, title: string) {
   }
 ```
 
-Then modify (course-edit-modal.component.ts)[the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.ts] to implement the close and dismiss actions
+Then modify [course-edit-modal.component.ts](the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.ts) to implement the close and dismiss actions
 
 ```
 constructor(private activeModal: NgbActiveModal) {}
