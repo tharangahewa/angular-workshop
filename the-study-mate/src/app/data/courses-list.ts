@@ -1,27 +1,27 @@
 export const courseList = [
   {
-    title: 'Angular Workshop',
+    title: 'Angular workshop',
     imgUrl: 'assets/angular-3-logo.png',
     price: 60,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!'
   },
   {
-    title: 'React Workshop',
+    title: 'React workshop',
     imgUrl: 'assets/angular-3-logo.png',
     price: 50,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!'
   },
   {
-    title: 'Vue Workshop',
+    title: 'Vue workshop',
     imgUrl: 'assets/angular-3-logo.png',
     price: 40,
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!'
   },
   {
-    title: 'Backbone Workshop',
+    title: 'Backbone workshop',
     imgUrl: 'assets/angular-3-logo.png',
     price: 30,
     description:
