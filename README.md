@@ -407,7 +407,7 @@ export class AppModule {
 Since Angular 9 (and ng-bootstrap 6) we have to add the additional @angular/localize polyfill to our project
 `ng add @angular/localize` 
 
-Follow (Modal section)[https://ng-bootstrap.github.io/#/components/modal/examples#component] to implement the modal. 
+Follow [Modal section](https://ng-bootstrap.github.io/#/components/modal/examples#component) to implement the modal. 
 
 To summarize we need to add NgbModal service to (my-courses.component.ts)[the-study-mate/src/app/component/my-courses/my-courses.component.ts]
 ```
