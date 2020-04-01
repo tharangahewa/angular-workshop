@@ -4,6 +4,8 @@ import { Course } from "src/app/model/course";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { CourseEditModalComponent } from "./course-edit-modal/course-edit-modal.component";
 
+const DEBUG = false;
+
 @Component({
   selector: "app-my-courses",
   templateUrl: "./my-courses.component.html",
@@ -15,16 +17,24 @@ export class MyCoursesComponent implements OnInit {
   constructor(private modalService: NgbModal) {}
 
   ngOnInit() {
-    console.log(courses);
+    if(DEBUG){
+      this.courses = [...courses].splice(0, 1);
+    setInterval(() => {
+      this.courses = [...courses].splice(
+        Math.floor(Math.random() * courses.length),
+        1
+      );
+    }, 2000);
+    }
   }
 
   onCreateCourse() {
-    const newCourse = { 
-      id: idGenerator(), 
-      title: '',
-      description: '',
+    const newCourse = {
+      id: idGenerator(),
+      title: "",
+      description: "",
       price: 0,
-      imgUrl: ''
+      imgUrl: ""
     } as Course;
     this.openModal(newCourse, "Create Course").then(
       result => {
@@ -53,5 +63,10 @@ export class MyCoursesComponent implements OnInit {
     return modalRef.result;
   }
 
-  onCourseRemove(course: Course) {}
+  onCourseRemove(course: Course) {
+    this.courses.splice(
+      this.courses.findIndex(c => course.id === c.id),
+      1
+    );
+  }
 }
