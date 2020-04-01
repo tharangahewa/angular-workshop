@@ -20,16 +20,12 @@ export class CourseEditModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.formGroup = this.formBuilder.group(
-      Object.assign(
-        {
-          title: [this.course.title, Validators.required],
-          description: [this.course.description, Validators.required],
-          price: [this.course.price, Validators.required]
-        },
-        this.course
-      )
-    );
+    this.formGroup = this.formBuilder.group({
+      title: [this.course.title, Validators.required],
+      description: [this.course.description, Validators.required],
+      price: [this.course.price, Validators.required],
+      imgUrl: [this.course.imgUrl]
+    });
   }
 
   onSave(course: Course) {
