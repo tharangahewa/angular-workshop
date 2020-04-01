@@ -12,9 +12,20 @@ import { HighlightableDirective } from './directives/highlightable.directive';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { MyCoursesComponent } from './components/my-courses/my-courses.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { AboutComponent } from './components/about/about.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NotImplementedComponent } from './components/not-implemented/not-implemented.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'my-courses', component: MyCoursesComponent },
+  { path: 'about', component: NotImplementedComponent },
+  { path: 'contact', component: NotImplementedComponent },
+  { path: 'course-details', component: CourseDetailsComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
@@ -29,14 +40,12 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
     EllipsisPipe,
     HomeComponent,
     MyCoursesComponent,
-    ContactComponent,
-    AboutComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    NotImplementedComponent,
+    PageNotFoundComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
