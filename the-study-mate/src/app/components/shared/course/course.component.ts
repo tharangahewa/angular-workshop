@@ -8,6 +8,7 @@ import { Course } from 'src/app/models/course';
 })
 export class CourseComponent implements OnInit {
   @Input() course: Course;
+  @Input() editable = false;
   @Output() courseSelected = new EventEmitter<Course>();
   inFocus = false;
 

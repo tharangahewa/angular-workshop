@@ -7,7 +7,7 @@ import { CarouselComponent } from './components/home/carousel/carousel.component
 import { FiltersComponent } from './components/home/filters/filters.component';
 import { CoursesComponent } from './components/home/courses/courses.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CourseComponent } from './components/home/courses/course/course.component';
+import { CourseComponent } from './components/shared/course/course.component';
 import { HighlightableDirective } from './directives/highlightable.directive';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { HomeComponent } from './components/home/home.component';
