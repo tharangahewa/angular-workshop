@@ -35,6 +35,7 @@ export class CourseComponent
   //Ready in terms of Angular framework
   ngOnInit() {
     this.logIt("ngOnInit");
+    // console.log("ngOnInit");
 
     if (DEBUG) {
       setInterval(() => {

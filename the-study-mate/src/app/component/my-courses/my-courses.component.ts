@@ -17,15 +17,22 @@ export class MyCoursesComponent implements OnInit {
   constructor(private modalService: NgbModal) {}
 
   ngOnInit() {
-    if(DEBUG){
+    if (DEBUG) {
       this.courses = [...courses].splice(0, 1);
-    setInterval(() => {
-      this.courses = [...courses].splice(
-        Math.floor(Math.random() * courses.length),
-        1
-      );
-    }, 2000);
+      setInterval(() => {
+        this.courses = [...courses].splice(
+          Math.floor(Math.random() * courses.length),
+          1
+        );
+      }, 2000);
     }
+
+    // setInterval(() => {
+    //   const arrayCopy = [...this.courses];
+    //   arrayCopy.push(courses[0])
+    //   this.courses = arrayCopy
+    //   console.log(arrayCopy);
+    // }, 5000);
   }
 
   onCreateCourse() {
