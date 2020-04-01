@@ -17,6 +17,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotImplementedComponent } from './components/not-implemented/not-implemented.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BackHomeButtonComponent } from './components/back-home-button/back-home-button.component';
+import { CourseEditModalComponent } from './components/my-courses/course-edit-modal/course-edit-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -44,9 +46,14 @@ const routes: Routes = [
     CourseDetailsComponent,
     NotImplementedComponent,
     PageNotFoundComponent,
-    BackHomeButtonComponent
+    BackHomeButtonComponent,
+    CourseEditModalComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule, 
+    RouterModule.forRoot(routes),
+    NgbModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
