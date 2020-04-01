@@ -16,13 +16,14 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
 import { RouterModule, Routes } from '@angular/router';
 import { NotImplementedComponent } from './components/not-implemented/not-implemented.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { BackHomeButtonComponent } from './components/back-home-button/back-home-button.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'my-courses', component: MyCoursesComponent },
   { path: 'about', component: NotImplementedComponent },
   { path: 'contact', component: NotImplementedComponent },
-  { path: 'course-details', component: CourseDetailsComponent },
+  { path: 'course-details/:id', component: CourseDetailsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -42,7 +43,8 @@ const routes: Routes = [
     MyCoursesComponent,
     CourseDetailsComponent,
     NotImplementedComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BackHomeButtonComponent
   ],
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   providers: [],

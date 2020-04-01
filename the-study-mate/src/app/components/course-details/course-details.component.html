@@ -1,6 +1,5 @@
 <div class="jumbotron">
-  <h1 class="display-4">Sorry!</h1>
-  <p class="lead">Cousrse details page is under construction.</p>
-  <hr class="my-4" />
-  <p>Looking for something else?</p>
+  <h1 class="display-4">{{ course.title | titlecase}}</h1>
+  <p class="lead">{{course.description}}</p>
+  <p class="lead">{{course.price | currency: 'USD'}}</p>
 </div>

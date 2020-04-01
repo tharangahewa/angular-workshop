@@ -6,10 +6,10 @@
 <div class="card h-100" 
   appHighlightable [appHighlightableClass]="'shadow-lg'"
 >
-  <a href="#"><img class="card-img-top" [src]="course.imgUrl" alt=""/></a>
+  <a><img class="card-img-top" [src]="course.imgUrl" alt=""/></a>
   <div class="card-body">
     <h4 class="card-title">
-      <a href="#" (click)="onClick($event)">{{ course.title | titlecase }}</a>
+      <a [routerLink]="['/course-details', course.title ]">{{ course.title | titlecase }}</a>
     </h4>
     <h5>{{ course.price | currency : 'USD' }}</h5>
     <p class="card-text">{{ course.description | ellipsis : 70 : '...' }}</p>

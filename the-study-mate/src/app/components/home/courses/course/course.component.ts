@@ -19,10 +19,10 @@ export class CourseComponent implements OnInit {
     // }, 2000);
   }
 
-  onClick(event: Event) {
-    this.course.price += 10;
-    this.courseSelected.emit(this.course);
-  }
+  // onClick(event: Event) {
+  //   this.course.price += 10;
+  //   this.courseSelected.emit(this.course);
+  // }
 
   onMouseEnter() {
     this.inFocus = true;
