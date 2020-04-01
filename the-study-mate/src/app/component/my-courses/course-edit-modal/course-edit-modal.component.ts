@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Course } from "src/app/model/course";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { courses } from "src/app/data/courses";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-course-edit-modal",
@@ -21,7 +20,16 @@ export class CourseEditModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.formGroup = this.formBuilder.group(this.course);
+    this.formGroup = this.formBuilder.group(
+      Object.assign(
+        {
+          title: [this.course.title, Validators.required],
+          description: [this.course.description, Validators.required],
+          price: [this.course.price, Validators.required]
+        },
+        this.course
+      )
+    );
   }
 
   onSave(course: Course) {
