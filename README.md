@@ -443,9 +443,11 @@ constructor(private activeModal: NgbActiveModal) {}
 ```
 
 ### Add the form
+First we need to add an id field to track a course identity. So we can modify a course object.
+[refer idGenerator function](the-study-mate/src/app/data/courses.ts) 
+
 Follow the steps in [Angular Reactive Forms](https://angular.io/guide/reactive-forms#grouping-form-controls) to implement the form. refer [course-edit-modal.component.ts](the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.ts) and [course-edit-modal.component.html](the-study-mate/src/app/component/my-courses/course-edit-modal/course-edit-modal.component.html) 
 
-We need to add an id field to track a course identity. So we can modify a course object.
-[refer idGenerator function](the-study-mate/src/app/data/courses.ts) 
+Follow the steps to add a validator [Angular Reactive Forms Validators](https://angular.io/guide/form-validation#reactive-form-validation)
 
 
