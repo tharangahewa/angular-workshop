@@ -21,15 +21,19 @@ import { BackHomeComponent } from "./component/back-home/back-home.component";
 import { CourseEditModalComponent } from "./component/my-courses/course-edit-modal/course-edit-modal.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './guards/auth.guard';
+import { AccessDeniedComponent } from './component/access-denied/access-denied.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "my-courses", component: MyCoursesComponent },
-  { path: "contact", component: ContactComponent },
+  { path: "contact", component: ContactComponent, canActivate: [AuthGuard] },
   { path: "about", component: AboutComponent },
   { path: "course-detail/:id", component: CourseDetailsComponent },
+  { path: "page-not-found", component: PageNotFoundComponent },
+  { path: "access-denied", component: AccessDeniedComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "**", component: PageNotFoundComponent }
+  { path: "**", redirectTo: "/page-not-found" }
 ];
 
 @NgModule({
@@ -50,7 +54,8 @@ const routes: Routes = [
     CourseDetailsComponent,
     PageNotFoundComponent,
     BackHomeComponent,
-    CourseEditModalComponent
+    CourseEditModalComponent,
+    AccessDeniedComponent
   ],
   entryComponents: [
     CourseEditModalComponent
