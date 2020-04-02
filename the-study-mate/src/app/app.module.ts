@@ -4,7 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { NavBarComponent } from "./component/nav-bar/nav-bar.component";
 import { FiltersComponent } from "./component/home/filters/filters.component";
-import { CarouselComponent } from "./carousel/carousel.component";
+import { CarouselComponent } from "./component/home/carousel/carousel.component";
 import { CoursesComponent } from "./component/home/courses/courses.component";
 import { CourseComponent } from "./component/shared/course/course.component";
 import { FooterComponent } from "./component/footer/footer.component";

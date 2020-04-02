@@ -454,3 +454,6 @@ Follow the steps to add a validator [Angular Reactive Forms Validators](https://
 ## Angular Component Lifecycle Hooks
 
 Please set `DEBUG = true` to watch lifecycle hooks in action, in both [my-courses.component.ts](the-study-mate/src/app/component/my-courses/my-courses.component.ts) and [course.component.ts](the-study-mate/src/app/component/shared/course/course.component.ts). Here we observing the state of both input arguments and component view.  
+
+## Angular Services
+
