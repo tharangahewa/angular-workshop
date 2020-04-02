@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { courses, idGenerator } from "src/app/data/courses";
 import { Course } from "src/app/model/course";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { CourseEditModalComponent } from "./course-edit-modal/course-edit-modal.component";
+import { CoursesStoreService } from "src/app/service/courses-store.service";
 
 const DEBUG = false;
 
@@ -12,68 +12,62 @@ const DEBUG = false;
   styleUrls: ["./my-courses.component.css"]
 })
 export class MyCoursesComponent implements OnInit {
-  courses = courses;
+  courses: Course[];
 
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    private courseService: CoursesStoreService
+  ) {
+    console.log(this.courses);
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.courseService.getCourses().subscribe((newCourses: Course[]) => {
+      this.courses = newCourses;
+      console.log(this.courses);
+    });
+
     if (DEBUG) {
-      this.courses = [...courses].splice(0, 1);
       setInterval(() => {
-        this.courses = [...courses].splice(
-          Math.floor(Math.random() * courses.length),
-          1
-        );
+        // this.courses.push(courseList[0]);
       }, 2000);
     }
-
-    // setInterval(() => {
-    //   const arrayCopy = [...this.courses];
-    //   arrayCopy.push(courses[0])
-    //   this.courses = arrayCopy
-    //   console.log(arrayCopy);
-    // }, 5000);
   }
 
   onCreateCourse() {
-    const newCourse = {
-      id: idGenerator(),
-      title: "",
-      description: "",
-      price: 0,
-      imgUrl: ""
-    } as Course;
-    this.openModal(newCourse, "Create Course").then(
-      result => {
-        console.log(result);
-        courses.push(result);
+    this.openModal(
+      {
+        title: "",
+        description: "",
+        price: null
+      } as Course,
+      "Create course"
+    ).then(
+      value => {
+        this.courseService.createCourse(value);
       },
       reason => console.log(reason)
     );
   }
 
   onCourseEdit(course: Course) {
-    this.openModal(course, "Edit Course").then(
-      result => {
-        console.log(result);
-        const idx = courses.findIndex(c => c.id === result.id);
-        courses[idx] = result;
+    this.openModal(course, "Edit course").then(
+      modifiedCourse => {
+        console.log(modifiedCourse);
+        this.courseService.updateCourse(modifiedCourse);
       },
       reason => console.log(reason)
     );
   }
 
-  private openModal(course: Course, title: string) {
-    const modalRef = this.modalService.open(CourseEditModalComponent);
-    modalRef.componentInstance.title = title;
-    modalRef.componentInstance.course = course;
-    return modalRef.result;
+  onCourseRemove(course: Course) {
+    this.courseService.deleteCourse(course);
   }
 
-  onCourseRemove(course: Course) {
-    this.courses.splice(
-      this.courses.findIndex(c => course.id === c.id),
-      1
-    );
+  private openModal(course: Course, title: string): Promise<any> {
+    const modalRef = this.modalService.open(CourseEditModalComponent);
+    modalRef.componentInstance.modalTitle = title;
+    modalRef.componentInstance.course = course;
+    return modalRef.result;
   }
 }

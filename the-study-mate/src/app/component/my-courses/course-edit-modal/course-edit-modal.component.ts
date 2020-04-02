@@ -29,6 +29,7 @@ export class CourseEditModalComponent implements OnInit {
   }
 
   onSave(course: Course) {
+    course.id = this.course.id;
     this.activeModal.close(course);
   }
 
