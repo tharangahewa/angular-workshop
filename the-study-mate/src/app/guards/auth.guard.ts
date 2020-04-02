@@ -4,7 +4,10 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
-  Router
+  Router,
+  CanLoad,
+  UrlSegment,
+  Route
 } from "@angular/router";
 import { Observable } from "rxjs";
 import { AuthService } from "../service/auth.service";
@@ -12,8 +15,12 @@ import { AuthService } from "../service/auth.service";
 @Injectable({
   providedIn: "root"
 })
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate, CanLoad {
   constructor(private authService: AuthService, private router: Router) {}
+
+  canLoad(route: Route, segments: UrlSegment[]): boolean | Observable<boolean> | Promise<boolean> {
+    return this.auth();
+  }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -24,11 +31,15 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     console.log("checking auth status");
+    return this.auth();
+  }
+
+  private auth(): Promise<boolean> {
     return this.authService.autorize().then(result => {
       if (!result) {
-        return this.router.navigate(["access-denied"]);
+        this.router.navigate(["access-denied"]);
       }
-      return result;
+      return Promise.resolve(result);
     });
   }
 }

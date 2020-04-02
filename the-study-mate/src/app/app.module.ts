@@ -27,12 +27,18 @@ import { AccessDeniedComponent } from './component/access-denied/access-denied.c
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "my-courses", component: MyCoursesComponent },
-  { path: "contact", component: ContactComponent, canActivate: [AuthGuard] },
+  { path: "contact", component: ContactComponent},
   { path: "about", component: AboutComponent },
   { path: "course-detail/:id", component: CourseDetailsComponent },
   { path: "page-not-found", component: PageNotFoundComponent },
   { path: "access-denied", component: AccessDeniedComponent },
-  { path: "", redirectTo: "/home", pathMatch: "full" },
+  {
+    path: "admin-dashboard",
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard] 
+  },
+  // { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", redirectTo: "/page-not-found" }
 ];
 
