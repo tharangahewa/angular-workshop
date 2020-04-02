@@ -19,7 +19,11 @@ export class MyCoursesComponent implements OnInit {
   ngOnInit(): void {}
 
   createCourse() {
-    this.openModal({} as Course, 'Create course');  
+    this.openModal({
+      title: '',
+      description: '',
+      price: null
+    } as Course, 'Create course');  
   }
 
   onCourseEdit(course: Course) {

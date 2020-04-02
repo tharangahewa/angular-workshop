@@ -6,19 +6,20 @@
   </button>
 </div>
 <div class="modal-body">
-  <form action="">
+  <form [formGroup]="formGroup" (ngSubmit)="onSave()">
     <div class="form-group">
-      <label for="title">Title</label>
+      <label>Title</label>
       <input
+        formControlName="title"
         type="text"
         class="form-control"
-        id="title"
         placeholder="Enter Course Title"
       />
     </div>
     <div class="form-group">
       <label for="title">Price ($)</label>
       <input
+        formControlName="price"
         type="number"
         class="form-control"
         id="price"
@@ -28,6 +29,7 @@
     <div class="form-group">
       <label for="title">Description</label>
       <textarea
+        formControlName="description"
         rows="5"
         class="form-control"
         id="desc"
