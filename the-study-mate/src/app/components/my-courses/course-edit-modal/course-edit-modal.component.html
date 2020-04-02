@@ -17,6 +17,15 @@
       />
     </div>
     <div class="form-group">
+      <label>Image URL</label>
+      <input
+        formControlName="imgUrl"
+        type="text"
+        class="form-control"
+        placeholder="Enter an image URL"
+      />
+    </div>
+    <div class="form-group">
       <label for="title">Price ($)</label>
       <input
         formControlName="price"
@@ -36,15 +45,16 @@
         placeholder="Enter Description"
       ></textarea>
     </div>
+    <div class="modal-footer">
+      <button 
+      [disabled]="formGroup.status === 'INVALID' "
+      type="submit" class="btn btn-primary">Save</button>
+      <button 
+      (click)="onClose()"
+      type="button" class="btn btn-secondary" data-dismiss="modal">
+        Close
+      </button>
+    </div>
   </form>
 </div>
-<div class="modal-footer">
-  <button 
-  (click)="onSave()"
-  type="button" class="btn btn-primary">Save</button>
-  <button 
-  (click)="onClose()"
-  type="button" class="btn btn-secondary" data-dismiss="modal">
-    Close
-  </button>
-</div>
+
