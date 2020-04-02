@@ -10,6 +10,7 @@ import {
   ElementRef
 } from '@angular/core';
 import { Course } from 'src/app/models/course';
+import { FirstServiceService } from 'src/app/services/first-service.service';
 
 const DEBUG = false;
 
@@ -27,11 +28,14 @@ export class CourseComponent
   @Output() couresDeleted = new EventEmitter<Course>();
   inFocus = false;
 
-  constructor(private el: ElementRef<HTMLElement>) {
+  constructor(private el: ElementRef<HTMLElement>, 
+    private firstService: FirstServiceService) {
+    
     this.logIt('constructor');
   }
 
   ngOnInit(): void {
+    this.firstService.anotherGreeting();
     this.logIt('ngOnInit');
     if (DEBUG) {
       setInterval(() => {

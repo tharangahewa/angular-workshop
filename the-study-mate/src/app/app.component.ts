@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FirstServiceService } from './services/first-service.service';
 
 @Component({
   selector: 'app-root',
