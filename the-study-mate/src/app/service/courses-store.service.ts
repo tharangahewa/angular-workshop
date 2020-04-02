@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Course } from "../model/course";
-import { courses } from "../data/courses";
 
 @Injectable({
   providedIn: "root"
@@ -53,7 +52,7 @@ export class CoursesStoreService {
   coursesObservable: BehaviorSubject<Course[]>;
 
   constructor() {
-    this.coursesObservable = new BehaviorSubject(courses);
+    this.coursesObservable = new BehaviorSubject(this.courses);
   }
 
   idGenerator(): number {
@@ -65,19 +64,19 @@ export class CoursesStoreService {
   }
 
   createCourse(course: Course) {
-    this.coursesObservable.subscribe(coursesList => {
-      const idx = coursesList.findIndex(c => c.id === course.id);
-      courses[idx] = course;
-    });
+    this.courses.push(course);
+    this.coursesObservable.next([...this.courses]);
   }
 
   updateCourse(course: Course) {
-    this.coursesObservable.subscribe(coursesList => {
-      const idx = coursesList.findIndex(c => c.id === course.id);
-      courses[idx] = course;
-      this.coursesObservable.next(coursesList);
-    });
+    const idx = this.courses.findIndex(c => c.id === course.id);
+    this.courses[idx] = course;
+    this.coursesObservable.next([...this.courses]);
   }
 
-  deleteCourse(course: Course) {}
+  deleteCourse(course: Course) {
+    const idx = this.courses.findIndex(c => c.id === course.id);
+    this.courses.splice(idx,1);
+    this.coursesObservable.next([...this.courses]);
+  }
 }
