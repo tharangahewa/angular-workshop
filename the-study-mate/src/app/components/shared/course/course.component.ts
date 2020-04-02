@@ -1,12 +1,25 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnDestroy,
+  DoCheck,
+  AfterViewInit,
+  ElementRef
+} from '@angular/core';
 import { Course } from 'src/app/models/course';
+
+const DEBUG = false;
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
-export class CourseComponent implements OnInit {
+export class CourseComponent
+  implements OnInit, OnDestroy, DoCheck, AfterViewInit {
   @Input() course: Course;
   @Input() editable = false;
   @Output() courseSelected = new EventEmitter<Course>();
@@ -14,12 +27,29 @@ export class CourseComponent implements OnInit {
   @Output() couresDeleted = new EventEmitter<Course>();
   inFocus = false;
 
-  constructor() {}
+  constructor(private el: ElementRef<HTMLElement>) {
+    this.logIt('constructor');
+  }
 
   ngOnInit(): void {
-    // setInterval( ()=> {
-    //   this.course.price = Math.round( Math.random() * 100);
-    // }, 2000);
+    this.logIt('ngOnInit');
+    if (DEBUG) {
+      setInterval(() => {
+        this.course.price = Math.round(Math.random() * 100);
+      }, 2000);
+    }
+  }
+
+  ngDoCheck(): void {
+    this.logIt('ngDoCheck');
+  }
+
+  ngAfterViewInit(): void {
+    this.logIt('ngAfterViewInit');
+  }
+
+  ngOnDestroy(): void {
+    this.logIt('ngOnDestroy');
   }
 
   // onClick(event: Event) {
@@ -35,12 +65,22 @@ export class CourseComponent implements OnInit {
     this.inFocus = false;
   }
 
-  onEdit(){
-    this.courseEdited.emit(this.course);  
+  onEdit() {
+    this.courseEdited.emit(this.course);
   }
 
-  onDelete(){
+  onDelete() {
     this.couresDeleted.emit(this.course);
   }
 
+  logIt(checkpoint: string) {
+    if (DEBUG) {
+      console.log(
+        'args at ' + checkpoint + ' - ' + JSON.stringify(this.course)
+      );
+      console.log(
+        'view at ' + checkpoint + ' - ' + this.el.nativeElement.textContent
+      );
+    }
+  }
 }

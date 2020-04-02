@@ -4,6 +4,8 @@ import { courseList } from 'src/app/data/courses-list';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { CourseEditModalComponent } from './course-edit-modal/course-edit-modal.component';
 
+const DEBUG = false;
+
 @Component({
   selector: 'app-my-courses',
   templateUrl: './my-courses.component.html',
@@ -16,7 +18,13 @@ export class MyCoursesComponent implements OnInit {
     console.log(this.courses);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (DEBUG) {
+      setInterval(() => {
+        this.courses.push(courseList[0]);
+      }, 2000);
+    }
+  }
 
   createCourse() {
     this.openModal(
