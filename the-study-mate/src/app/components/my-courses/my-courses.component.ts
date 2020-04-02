@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/models/course';
-import { courseList } from 'src/app/data/courses-list';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { CourseEditModalComponent } from './course-edit-modal/course-edit-modal.component';
+import { CoursesStoreService } from 'src/app/services/courses-store.service';
 
 const DEBUG = false;
 
@@ -12,16 +12,26 @@ const DEBUG = false;
   styleUrls: ['./my-courses.component.css']
 })
 export class MyCoursesComponent implements OnInit {
-  courses: Course[] = courseList;
+  courses: Course[];
 
-  constructor(private modalService: NgbModal) {
+  constructor(
+    private modalService: NgbModal,
+    private courseService: CoursesStoreService
+  ) {
     console.log(this.courses);
   }
 
   ngOnInit(): void {
+    this.courseService.getCourses().subscribe(
+      (newCourses: Course[]) => { 
+        this.courses = newCourses;
+        console.log( this.courses);
+       }
+    );
+
     if (DEBUG) {
       setInterval(() => {
-        this.courses.push(courseList[0]);
+        // this.courses.push(courseList[0]);
       }, 2000);
     }
   }
@@ -36,7 +46,7 @@ export class MyCoursesComponent implements OnInit {
       'Create course'
     ).then(
       value => {
-        this.courses.push(value);
+        this.courseService.createCourse(value);
       },
       reason => console.log(reason)
     );
@@ -45,21 +55,15 @@ export class MyCoursesComponent implements OnInit {
   onCourseEdit(course: Course) {
     this.openModal(course, 'Edit course').then(
       modifiedCourse => {
-        const idx = this.courses.findIndex(
-          thisCourse => course.id === thisCourse.id
-        );
-        this.courses[idx] = modifiedCourse;
+        console.log( modifiedCourse);
+        this.courseService.updateCourse(modifiedCourse);
       },
       reason => console.log(reason)
     );
   }
 
   onCourseDelete(course: Course) {
-    console.log('onCourseDelete');
-    const idx = this.courses.findIndex(
-      thisCourse => course.id === thisCourse.id
-    );
-    this.courses.splice(idx, 1);
+    this.courseService.deleteCourse(course);
   }
 
   private openModal(course: Course, title: string): Promise<any> {

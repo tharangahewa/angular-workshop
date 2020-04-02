@@ -1,7 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-course-edit-modal',
@@ -12,22 +17,25 @@ export class CourseEditModalComponent implements OnInit {
   @Input() modalTitle: string;
   @Input() course: Course;
 
-  formGroup: FormGroup; 
+  formGroup: FormGroup;
 
   constructor(private activeModal: NgbActiveModal, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
-      'title': [ this.course.title, Validators.required],
-      'description' : [this.course.description, Validators.required],
-      'price': [this.course.price, Validators.required],
-      'imgUrl':[this.course.imgUrl]
-    } );
-
+      title: [this.course.title, Validators.required],
+      description: [this.course.description, Validators.required],
+      price: [this.course.price, Validators.required],
+      imgUrl: [this.course.imgUrl]
+    });
   }
 
   onSave() {
-    this.activeModal.close(this.formGroup.value);
+    const value = this.formGroup.value as Course;
+    if (this.course.id) {
+      value.id = this.course.id;
+    }
+    this.activeModal.close(value);
   }
 
   onClose() {
