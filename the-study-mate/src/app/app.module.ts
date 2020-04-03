@@ -20,7 +20,7 @@ import { BackHomeButtonComponent } from './components/back-home-button/back-home
 import { CourseEditModalComponent } from './components/my-courses/course-edit-modal/course-edit-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FirstServiceService } from './services/first-service.service';
+import { AdminModule } from './admin/admin.module';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -52,10 +52,11 @@ const routes: Routes = [
     CourseEditModalComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     RouterModule.forRoot(routes),
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AdminModule
   ],
   bootstrap: [AppComponent]
 })
