@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FirstServiceService } from './services/first-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +7,7 @@ import { FirstServiceService } from './services/first-service.service';
 })
 export class AppComponent {
   title = 'my-study-mate';
+
+  constructor() {
+  }
 }

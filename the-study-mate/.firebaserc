@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-workshop-12845": {
+      "hosting": {
+        "the-study-mate": [
+          "angular-workshop-12845"
+        ]
+      }
+    }
+  }
+}
