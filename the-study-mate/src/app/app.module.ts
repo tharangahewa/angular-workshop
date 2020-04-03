@@ -20,7 +20,6 @@ import { BackHomeButtonComponent } from './components/back-home-button/back-home
 import { CourseEditModalComponent } from './components/my-courses/course-edit-modal/course-edit-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdminModule } from './admin/admin.module';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -28,6 +27,10 @@ const routes: Routes = [
   { path: 'about', component: NotImplementedComponent },
   { path: 'contact', component: NotImplementedComponent },
   { path: 'course-details/:id', component: CourseDetailsComponent },
+  {
+    path: 'admin-dashboard',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -55,8 +58,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     NgbModule,
-    ReactiveFormsModule,
-    AdminModule
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

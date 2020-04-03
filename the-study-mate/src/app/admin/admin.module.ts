@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const adminRoutes: Routes = [
   {
-    path: 'admin-dashdoard',
+    path: '',
     component: AdminDashboardComponent,
     children: [
       { path: '', component: SliderComponent},
